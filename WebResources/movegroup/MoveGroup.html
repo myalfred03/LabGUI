@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<!-- saved from url=(0113)http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Move Group C++ Interface — moveit_tutorials Kinetic documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/_static/favicon.ico">
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="./Move Group C++ Interface — moveit_tutorials Kinetic documentation_files/theme.css" type="text/css">
+  
+
+  
+    <link rel="stylesheet" href="./Move Group C++ Interface — moveit_tutorials Kinetic documentation_files/override.css" type="text/css">
+  
+
+  
+    <link rel="top" title="moveit_tutorials Kinetic documentation" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/index.html">
+        <link rel="next" title="Move Group Python Interface" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html">
+        <link rel="prev" title="MoveIt! Quickstart in RViz" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html"> 
+
+  
+  <script type="text/javascript" async="" src="./Move Group C++ Interface — moveit_tutorials Kinetic documentation_files/analytics.js"></script><script src="./Move Group C++ Interface — moveit_tutorials Kinetic documentation_files/modernizr.min.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="./Move Group C++ Interface — moveit_tutorials Kinetic documentation_files/js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-108532843-1');
+  </script>
+
+<link rel="canonical" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html">
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/index.html" class="icon icon-home">
+        
+
+          MoveIt! Motion<br>Planning Framework
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="http://docs.ros.org/kinetic/api/moveit_tutorials/html/search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/getting_started/getting_started.html"><span class="toctree-expand"></span>Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/getting_started/getting_started.html#install-ros-and-catkin">Install ROS and Catkin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/getting_started/getting_started.html#install-moveit">Install MoveIt!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/getting_started/getting_started.html#create-a-catkin-workspace">Create A Catkin Workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/getting_started/getting_started.html#download-the-example-code">Download the Example Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/getting_started/getting_started.html#build-your-catkin-workspace">Build your Catkin Workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/getting_started/getting_started.html#next-step">Next Step</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html"><span class="toctree-expand"></span>MoveIt! Quickstart in RViz</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#step-1-launch-the-demo-and-configure-the-plugin">Step 1: Launch the Demo and Configure the Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#step-2-play-with-the-visualized-robots">Step 2: Play with the Visualized Robots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#step-3-interact-with-the-panda"><span class="toctree-expand"></span>Step 3: Interact with the Panda</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#moving-into-collision">Moving into collision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#moving-out-of-reachable-workspace">Moving out of Reachable Workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#step-4-use-motion-planning-with-the-panda"><span class="toctree-expand"></span>Step 4: Use Motion Planning with the Panda</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#introspecting-trajectory-waypoints">Introspecting Trajectory Waypoints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#next-steps"><span class="toctree-expand"></span>Next Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#rviz-visual-tools">RViz Visual Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#saving-your-configuration">Saving Your Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#next-tutorials">Next Tutorials</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html"><span class="toctree-expand"></span>Move Group C++ Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#running-the-code">Running the Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#the-entire-code"><span class="toctree-expand"></span>The Entire Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#visualization">Visualization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#getting-basic-information">Getting Basic Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#start-the-demo">Start the demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#planning-to-a-pose-goal">Planning to a Pose goal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#visualizing-plans">Visualizing plans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#moving-to-a-pose-goal">Moving to a pose goal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#planning-to-a-joint-space-goal">Planning to a joint-space goal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#planning-with-path-constraints">Planning with Path Constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#cartesian-paths">Cartesian Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#adding-removing-objects-and-attaching-detaching-objects">Adding/Removing Objects and Attaching/Detaching Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#the-launch-file">The Launch File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html"><span class="toctree-expand"></span>Move Group Python Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#start-rviz-and-movegroup-node">Start RViz and MoveGroup node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#the-entire-code"><span class="toctree-expand"></span>The Entire Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#getting-basic-information">Getting Basic Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#planning-to-a-joint-goal">Planning to a Joint Goal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#planning-to-a-pose-goal">Planning to a Pose Goal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#cartesian-paths">Cartesian Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#displaying-a-trajectory">Displaying a Trajectory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#executing-a-plan">Executing a Plan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#adding-objects-to-the-planning-scene">Adding Objects to the Planning Scene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#ensuring-collision-updates-are-receieved">Ensuring Collision Updates Are Receieved</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#attaching-objects-to-the-robot">Attaching Objects to the Robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#detaching-objects-from-the-robot">Detaching Objects from the Robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#removing-objects-from-the-planning-scene">Removing Objects from the Planning Scene</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html#the-launch-file">The Launch File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/moveit_commander_scripting/moveit_commander_scripting_tutorial.html"><span class="toctree-expand"></span>MoveIt! Commander Scripting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/moveit_commander_scripting/moveit_commander_scripting_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/moveit_commander_scripting/moveit_commander_scripting_tutorial.html#starting-rviz-and-the-command-line-tool">Starting RViz and the Command Line Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/moveit_commander_scripting/moveit_commander_scripting_tutorial.html#using-the-moveit-commander-command-line-tool">Using the MoveIt! Commander Command Line Tool</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/robot_model_and_robot_state/robot_model_and_robot_state_tutorial.html"><span class="toctree-expand"></span>Robot Model and Robot State</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/robot_model_and_robot_state/robot_model_and_robot_state_tutorial.html#the-robotmodel-and-robotstate-classes">The RobotModel and RobotState Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/robot_model_and_robot_state/robot_model_and_robot_state_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/robot_model_and_robot_state/robot_model_and_robot_state_tutorial.html#running-the-code">Running the Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/robot_model_and_robot_state/robot_model_and_robot_state_tutorial.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/robot_model_and_robot_state/robot_model_and_robot_state_tutorial.html#the-entire-code"><span class="toctree-expand"></span>The Entire Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/robot_model_and_robot_state/robot_model_and_robot_state_tutorial.html#start">Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/robot_model_and_robot_state/robot_model_and_robot_state_tutorial.html#get-joint-values">Get Joint Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/robot_model_and_robot_state/robot_model_and_robot_state_tutorial.html#joint-limits">Joint Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/robot_model_and_robot_state/robot_model_and_robot_state_tutorial.html#forward-kinematics">Forward Kinematics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/robot_model_and_robot_state/robot_model_and_robot_state_tutorial.html#inverse-kinematics">Inverse Kinematics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/robot_model_and_robot_state/robot_model_and_robot_state_tutorial.html#get-the-jacobian">Get the Jacobian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/robot_model_and_robot_state/robot_model_and_robot_state_tutorial.html#the-launch-file">The Launch File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html"><span class="toctree-expand"></span>Planning Scene</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#the-entire-code"><span class="toctree-expand"></span>The entire code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#collision-checking"><span class="toctree-expand"></span>Collision Checking</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#self-collision-checking">Self-collision checking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#change-the-state">Change the state</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#checking-for-a-group">Checking for a group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#getting-contact-information">Getting Contact Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#modifying-the-allowed-collision-matrix">Modifying the Allowed Collision Matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#full-collision-checking">Full Collision Checking</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#constraint-checking"><span class="toctree-expand"></span>Constraint Checking</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#checking-kinematic-constraints">Checking Kinematic Constraints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#user-defined-constraints">User-defined constraints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#the-launch-file">The launch file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#running-the-code">Running the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene/planning_scene_tutorial.html#expected-output">Expected Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html"><span class="toctree-expand"></span>Planning Scene ROS API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#running-the-code">Running the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#the-entire-code"><span class="toctree-expand"></span>The entire code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#visualization">Visualization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#ros-api">ROS API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#advertise-the-required-topic">Advertise the required topic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#define-the-attached-object-message">Define the attached object message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#add-an-object-into-the-environment">Add an object into the environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#interlude-synchronous-vs-asynchronous-updates">Interlude: Synchronous vs Asynchronous updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#attach-an-object-to-the-robot">Attach an object to the robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#detach-an-object-from-the-robot">Detach an object from the robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#remove-the-object-from-the-collision-world">Remove the object from the collision world</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_scene_ros_api/planning_scene_ros_api_tutorial.html#the-launch-file">The launch file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_api/motion_planning_api_tutorial.html"><span class="toctree-expand"></span>Motion Planning API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_api/motion_planning_api_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_api/motion_planning_api_tutorial.html#running-the-demo">Running the Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_api/motion_planning_api_tutorial.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_api/motion_planning_api_tutorial.html#the-entire-code"><span class="toctree-expand"></span>The Entire Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_api/motion_planning_api_tutorial.html#start">Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_api/motion_planning_api_tutorial.html#visualization">Visualization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_api/motion_planning_api_tutorial.html#pose-goal">Pose Goal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_api/motion_planning_api_tutorial.html#visualize-the-result">Visualize the result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_api/motion_planning_api_tutorial.html#joint-space-goals">Joint Space Goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_api/motion_planning_api_tutorial.html#adding-path-constraints">Adding Path Constraints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_api/motion_planning_api_tutorial.html#the-launch-file">The Launch File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_pipeline/motion_planning_pipeline_tutorial.html"><span class="toctree-expand"></span>Motion Planning Pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_pipeline/motion_planning_pipeline_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_pipeline/motion_planning_pipeline_tutorial.html#running-the-code">Running the Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_pipeline/motion_planning_pipeline_tutorial.html#expected-output">Expected Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_pipeline/motion_planning_pipeline_tutorial.html#the-entire-code"><span class="toctree-expand"></span>The Entire Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_pipeline/motion_planning_pipeline_tutorial.html#start">Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_pipeline/motion_planning_pipeline_tutorial.html#visualization">Visualization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_pipeline/motion_planning_pipeline_tutorial.html#pose-goal">Pose Goal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_pipeline/motion_planning_pipeline_tutorial.html#visualize-the-result">Visualize the result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_pipeline/motion_planning_pipeline_tutorial.html#joint-space-goals">Joint Space Goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_pipeline/motion_planning_pipeline_tutorial.html#using-a-planning-request-adapter">Using a Planning Request Adapter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/motion_planning_pipeline/motion_planning_pipeline_tutorial.html#the-launch-file">The Launch File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/visualizing_collisions/visualizing_collisions_tutorial.html"><span class="toctree-expand"></span>Visualizing Collisions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/visualizing_collisions/visualizing_collisions_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/visualizing_collisions/visualizing_collisions_tutorial.html#running-the-code">Running the Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/visualizing_collisions/visualizing_collisions_tutorial.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/visualizing_collisions/visualizing_collisions_tutorial.html#interacting">Interacting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/visualizing_collisions/visualizing_collisions_tutorial.html#relevant-code"><span class="toctree-expand"></span>Relevant Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/visualizing_collisions/visualizing_collisions_tutorial.html#initializing-the-planning-scene-and-markers">Initializing the Planning Scene and Markers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/visualizing_collisions/visualizing_collisions_tutorial.html#collision-requests">Collision Requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/visualizing_collisions/visualizing_collisions_tutorial.html#checking-for-collisions">Checking for Collisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/visualizing_collisions/visualizing_collisions_tutorial.html#displaying-collision-contact-points">Displaying Collision Contact Points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/visualizing_collisions/visualizing_collisions_tutorial.html#launch-file">Launch file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/time_parameterization/time_parameterization_tutorial.html"><span class="toctree-expand"></span>Time Parameterization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/time_parameterization/time_parameterization_tutorial.html#speed-control"><span class="toctree-expand"></span>Speed Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/time_parameterization/time_parameterization_tutorial.html#from-file">From File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/time_parameterization/time_parameterization_tutorial.html#during-runtime">During Runtime</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/time_parameterization/time_parameterization_tutorial.html#time-parameterization-algorithms">Time Parameterization Algorithms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_with_approximated_constraint_manifolds/planning_with_approximated_constraint_manifolds_tutorial.html"><span class="toctree-expand"></span>Planning with Approximated Constraint Manifolds</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_with_approximated_constraint_manifolds/planning_with_approximated_constraint_manifolds_tutorial.html#creating-the-constraint-database"><span class="toctree-expand"></span>Creating the Constraint Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_with_approximated_constraint_manifolds/planning_with_approximated_constraint_manifolds_tutorial.html#constraints-message">Constraints message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_with_approximated_constraint_manifolds/planning_with_approximated_constraint_manifolds_tutorial.html#construction-options"><span class="toctree-expand"></span>Construction Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_with_approximated_constraint_manifolds/planning_with_approximated_constraint_manifolds_tutorial.html#graph-size">Graph size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_with_approximated_constraint_manifolds/planning_with_approximated_constraint_manifolds_tutorial.html#edges">Edges</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_with_approximated_constraint_manifolds/planning_with_approximated_constraint_manifolds_tutorial.html#database-construction">Database Construction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/planning_with_approximated_constraint_manifolds/planning_with_approximated_constraint_manifolds_tutorial.html#database-loading-and-usage">Database Loading and Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html"><span class="toctree-expand"></span>Pick and Place Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#running-the-demo">Running The Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#understanding-moveit-msgs-grasp">Understanding <code class="docutils literal"><span class="pre">moveit_msgs::Grasp</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#the-entire-code"><span class="toctree-expand"></span>The Entire Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#creating-environment">Creating Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#pick-pipeline"><span class="toctree-expand"></span>Pick Pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#setting-grasp-pose">Setting grasp pose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#setting-pre-grasp-approach">Setting pre-grasp approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#setting-post-grasp-retreat">Setting post-grasp retreat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#setting-posture-of-eef-before-grasp">Setting posture of eef before grasp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#setting-posture-of-eef-during-grasp">Setting posture of eef during grasp</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#place-pipeline"><span class="toctree-expand"></span>Place Pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#setting-place-location-pose">Setting place location pose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#setting-pre-place-approach">Setting pre-place approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#id2">Setting post-grasp retreat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/pick_place/pick_place_tutorial.html#setting-posture-of-eef-after-placing-object">Setting posture of eef after placing object</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html"><span class="toctree-expand"></span>MoveIt! Setup Assistant</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html#step-1-start">Step 1: Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html#step-2-generate-self-collision-matrix">Step 2: Generate Self-Collision Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html#step-3-add-virtual-joints">Step 3: Add Virtual Joints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html#step-4-add-planning-groups">Step 4: Add Planning Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html#step-5-add-robot-poses">Step 5: Add Robot Poses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html#step-6-label-end-effectors">Step 6: Label End Effectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html#step-7-add-passive-joints">Step 7: Add Passive Joints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html#step-8-add-author-information">Step 8: Add Author Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html#step-9-generate-configuration-files">Step 9: Generate Configuration Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html#what-s-next">What’s Next</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html#additional-reading">Additional Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html"><span class="toctree-expand"></span>URDF and SRDF</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#urdf"><span class="toctree-expand"></span>URDF</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#urdf-resources">URDF Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#important-tips"><span class="toctree-expand"></span>Important Tips</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#special-characters-in-joint-names">Special Characters in Joint Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#safety-limits">Safety Limits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#collision-checking">Collision Checking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#test-your-urdf">Test your URDF</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#urdf-examples">URDF Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#srdf"><span class="toctree-expand"></span>SRDF</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#virtual-joints">Virtual Joints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#passive-joints">Passive Joints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#groups"><span class="toctree-expand"></span>Groups</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#collection-of-joints">Collection of Joints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#collection-of-links">Collection of Links</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#serial-chain">Serial Chain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#collection-of-sub-groups">Collection of Sub-Groups</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#end-effectors">End-Effectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#self-collisions">Self-Collisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#robot-poses">Robot Poses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/urdf_srdf/urdf_srdf_tutorial.html#srdf-documentation">SRDF Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/controller_configuration/controller_configuration_tutorial.html"><span class="toctree-expand"></span>Controllers Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/controller_configuration/controller_configuration_tutorial.html#yaml-configuration">YAML Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/controller_configuration/controller_configuration_tutorial.html#followjointtrajectory-controller-interface">FollowJointTrajectory Controller Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/controller_configuration/controller_configuration_tutorial.html#grippercommand-controller-interface">GripperCommand Controller Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/controller_configuration/controller_configuration_tutorial.html#optional-allowed-trajectory-execution-duration-parameters">Optional Allowed Trajectory Execution Duration Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/controller_configuration/controller_configuration_tutorial.html#create-the-controller-launch-file">Create the Controller launch file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/controller_configuration/controller_configuration_tutorial.html#debugging-information">Debugging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/controller_configuration/controller_configuration_tutorial.html#remapping-joint-states-topic">Remapping /joint_states topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/controller_configuration/controller_configuration_tutorial.html#trajectory-execution-manager-options">Trajectory Execution Manager Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/perception_configuration/perception_configuration_tutorial.html"><span class="toctree-expand"></span>Perception/Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/perception_configuration/perception_configuration_tutorial.html#yaml-configuration-file-point-cloud">YAML Configuration file (Point Cloud)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/perception_configuration/perception_configuration_tutorial.html#yaml-configuration-file-depth-map">YAML Configuration file (Depth Map)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/perception_configuration/perception_configuration_tutorial.html#update-the-launch-file"><span class="toctree-expand"></span>Update the launch file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/perception_configuration/perception_configuration_tutorial.html#add-the-yaml-file-to-the-launch-script">Add the YAML file to the launch script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/perception_configuration/perception_configuration_tutorial.html#octomap-configuration">Octomap Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html"><span class="toctree-expand"></span>IKFast Plugin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#what-is-ikfast">What is IKFast?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#moveit-ikfast">MoveIt! IKFast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#moveit-ikfast-installation">MoveIt! IKFast Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#openrave-installation">OpenRAVE Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#create-collada-file-for-use-with-openrave"><span class="toctree-expand"></span>Create Collada File For Use With OpenRAVE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#parameters">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#create-ikfast-solution-cpp-file"><span class="toctree-expand"></span>Create IKFast Solution CPP File</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#select-ik-type">Select IK Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#choose-planning-group">Choose Planning Group</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#identify-link-numbers">Identify Link Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#generate-ik-solver">Generate IK Solver</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#create-plugin">Create Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#usage"><span class="toctree-expand"></span>Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#test-the-plugin">Test the Plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ikfast/ikfast_tutorial.html#updating-the-plugin">Updating the Plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/trac_ik/trac_ik_tutorial.html"><span class="toctree-expand"></span>TRAC-IK Kinematics Solver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/trac_ik/trac_ik_tutorial.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/trac_ik/trac_ik_tutorial.html#usage">Usage</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/fake_controller_manager/fake_controller_manager_tutorial.html"><span class="toctree-expand"></span>Fake Controller Manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/fake_controller_manager/fake_controller_manager_tutorial.html#yaml-file-examples">YAML file examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/kinematics_configuration/kinematics_configuration_tutorial.html"><span class="toctree-expand"></span>Kinematics Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/kinematics_configuration/kinematics_configuration_tutorial.html#the-kinematics-yaml-file"><span class="toctree-expand"></span>The kinematics.yaml file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/kinematics_configuration/kinematics_configuration_tutorial.html#parameters">Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/kinematics_configuration/kinematics_configuration_tutorial.html#the-kdl-kinematics-plugin">The KDL Kinematics Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/kinematics_configuration/kinematics_configuration_tutorial.html#the-lma-kinematics-plugin">The LMA Kinematics Plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/kinematics_configuration/kinematics_configuration_tutorial.html#position-only-ik">Position Only IK</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/custom_constraint_samplers/custom_constraint_samplers_tutorial.html"><span class="toctree-expand"></span>Custom Constraint Samplers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/custom_constraint_samplers/custom_constraint_samplers_tutorial.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/custom_constraint_samplers/custom_constraint_samplers_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/custom_constraint_samplers/custom_constraint_samplers_tutorial.html#creating-a-constraint-sampler">Creating a constraint sampler</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ompl_interface/ompl_interface_tutorial.html"><span class="toctree-expand"></span>OMPL Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ompl_interface/ompl_interface_tutorial.html#ompl-settings"><span class="toctree-expand"></span>OMPL Settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ompl_interface/ompl_interface_tutorial.html#longest-valid-segment-fraction">Longest Valid Segment Fraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ompl_interface/ompl_interface_tutorial.html#projection-evaluator">Projection Evaluator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ompl_interface/ompl_interface_tutorial.html#other-settings">Other Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/ompl_interface/ompl_interface_tutorial.html#ompl-optimization-objectives">OMPL Optimization Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/chomp_planner/chomp_planner_tutorial.html"><span class="toctree-expand"></span>CHOMP Planner</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/chomp_planner/chomp_planner_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/chomp_planner/chomp_planner_tutorial.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/chomp_planner/chomp_planner_tutorial.html#installing-moveit-from-source">Installing MoveIt! from Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/chomp_planner/chomp_planner_tutorial.html#using-chomp-with-your-robot">Using CHOMP with Your Robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/chomp_planner/chomp_planner_tutorial.html#running-the-demo"><span class="toctree-expand"></span>Running the Demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/chomp_planner/chomp_planner_tutorial.html#running-chomp-with-obstacles-in-the-scene">Running CHOMP with Obstacles in the Scene</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/chomp_planner/chomp_planner_tutorial.html#tweaking-some-of-the-parameters-for-chomp">Tweaking some of the parameters for CHOMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/chomp_planner/chomp_planner_tutorial.html#difference-between-plans-obtained-by-chomp-and-ompl">Difference between plans obtained by CHOMP and OMPL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/stomp_planner/stomp_planner_tutorial.html"><span class="toctree-expand"></span>STOMP Planner</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/stomp_planner/stomp_planner_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/stomp_planner/stomp_planner_tutorial.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/stomp_planner/stomp_planner_tutorial.html#installing-moveit-from-source">Installing MoveIt! from Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/stomp_planner/stomp_planner_tutorial.html#using-stomp-with-your-robot">Using STOMP with Your Robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/stomp_planner/stomp_planner_tutorial.html#running-the-demo"><span class="toctree-expand"></span>Running the Demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/stomp_planner/stomp_planner_tutorial.html#running-stomp-with-obstacles-in-the-scene">Running STOMP with Obstacles in the Scene</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/stomp_planner/stomp_planner_tutorial.html#tweaking-some-of-the-parameters-for-stomp">Tweaking some of the parameters for STOMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/stomp_planner/stomp_planner_tutorial.html#difference-between-plans-obtained-by-stomp-chomp-and-ompl">Difference between plans obtained by STOMP, CHOMP and OMPL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/stomp_planner/stomp_planner_tutorial.html#running-stomp-unit-tests">Running STOMP Unit Tests</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/joystick_control_teleoperation/joystick_control_teleoperation_tutorial.html"><span class="toctree-expand"></span>Joystick Control Teleoperation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/joystick_control_teleoperation/joystick_control_teleoperation_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/joystick_control_teleoperation/joystick_control_teleoperation_tutorial.html#running-the-code">Running the Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/joystick_control_teleoperation/joystick_control_teleoperation_tutorial.html#joystick-command-mappings">Joystick Command Mappings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/joystick_control_teleoperation/joystick_control_teleoperation_tutorial.html#debugging">Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/benchmarking/benchmarking_tutorial.html"><span class="toctree-expand"></span>Benchmarking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/benchmarking/benchmarking_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/benchmarking/benchmarking_tutorial.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/benchmarking/benchmarking_tutorial.html#viewing-results">Viewing Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/benchmarking/benchmarking_tutorial.html#parameters-of-the-benchmarkoptions-class">Parameters of the BenchmarkOptions Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/benchmarking/benchmarking_tutorial.html#parameters-of-the-benchmarkexecutor-class">Parameters of the BenchmarkExecutor Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/benchmarking/benchmarking_tutorial.html#benchmarking-of-different-motion-planners-chomp-stomp-and-ompl"><span class="toctree-expand"></span>Benchmarking of Different Motion Planners: CHOMP, STOMP and OMPL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/benchmarking/benchmarking_tutorial.html#benchmarking-in-a-scene-without-obstacles">Benchmarking in a scene without obstacles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/benchmarking/benchmarking_tutorial.html#benchmarking-in-a-scene-with-obstacles">Benchmarking in a scene with obstacles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/tests/tests_tutorial.html"><span class="toctree-expand"></span>Tests In MoveIt!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/tests/tests_tutorial.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/tests/tests_tutorial.html#integration-test">Integration Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/tests/tests_tutorial.html#test-robots">Test Robots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/tests/tests_tutorial.html#unit-tests">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/tests/tests_tutorial.html#kinematic-tests">Kinematic Tests</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/index.html">moveit_tutorials</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+
+        <div class="header-override">
+          <p>
+            <a href="http://moveit.ros.org/">MoveIt! Website</a><br>
+            <a href="http://moveit.ros.org/blog">Blog</a>
+          </p>
+          <a href="http://moveit.ros.org/">
+            <img src="./Move Group C++ Interface — moveit_tutorials Kinetic documentation_files/logo.png">
+          </a>
+        </div>
+
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/ros-planning/moveit_tutorials/blob/kinetic-devel/doc/move_group_interface/move_group_interface_tutorial.rst" class="fa fa-github"> Edit on GitHub</a>
+        
+      
+    </li>
+    <li><a href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/index.html">Docs</a> »</li>
+      
+    <li>Move Group C++ Interface</li>
+  </ul>
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             <!-- <div class="admonition note">  -->
+               <!-- <p class="first admonition-title">Code Used in this Tutorial Available</p>  -->
+               <!-- <p class="last">Code can be found at <a href = "https://github.com/ros-planning/moveit_tutorials">moveit_tutorials repository</a> in doc folder. Use kinetic-devel branch.</p> -->
+             <!-- </div>  -->
+            
+  <div class="section" id="move-group-c-interface">
+<h1>Move Group C++ Interface<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#move-group-c-interface" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="./Move Group C++ Interface — moveit_tutorials Kinetic documentation_files/move_group_interface_tutorial_start_screen.png"><img alt="../../_images/move_group_interface_tutorial_start_screen.png" src="./Move Group C++ Interface — moveit_tutorials Kinetic documentation_files/move_group_interface_tutorial_start_screen.png" style="width: 700px;"></a>
+<p>In MoveIt!, the simplest user interface is through the <a class="reference external" href="http://docs.ros.org/kinetic/api/moveit_ros_planning_interface/html/classmoveit_1_1planning__interface_1_1MoveGroup.html">MoveGroup</a> class. It provides easy to use functionality for most operations that a user may want to carry out, specifically setting joint or pose goals, creating motion plans, moving the robot, adding objects into the environment and attaching/detaching objects from the robot. This interface communicates over ROS topics, services, and actions to the <a class="reference external" href="http://docs.ros.org/indigo/api/moveit_ros_move_group/html/annotated.html">MoveGroup Node</a>.</p>
+<p>Watch this quick <a class="reference external" href="https://youtu.be/_5siHkFQPBQ">YouTube video demo</a> to see the power of the move group interface!</p>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>If you haven’t already done so, make sure you’ve completed the steps in <a class="reference external" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/getting_started/getting_started.html">Getting Started</a>.</p>
+</div>
+<div class="section" id="running-the-code">
+<h2>Running the Code<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#running-the-code" title="Permalink to this headline">¶</a></h2>
+<p>Open two shells. In the first shell start RViz and wait for everything to finish loading:</p>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch panda_moveit_config demo.launch
+</pre></div>
+</div>
+<p>In the second shell, run the launch file:</p>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch moveit_tutorials move_group_interface_tutorial.launch
+</pre></div>
+</div>
+<p><strong>Note:</strong> This tutorial uses the <strong>RvizVisualToolsGui</strong> panel to step through the demo. To add this panel to RViz, follow the instructions in the <a class="reference external" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html#rviz-visual-tools">Visualization Tutorial</a>.</p>
+<p>After a short moment, the RViz window should appear and look similar to the one at the top of this page. To progress through each demo step either press the <strong>Next</strong> button in the <strong>RvizVisualToolsGui</strong> panel at the bottom of the screen or select <strong>Key Tool</strong> in the <strong>Tools</strong> panel at the top of the screen and then press <strong>N</strong> on your keyboard while RViz is focused.</p>
+</div>
+<div class="section" id="expected-output">
+<h2>Expected Output<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#expected-output" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>See the <a class="reference external" href="https://youtu.be/_5siHkFQPBQ">YouTube video</a> at the top of this tutorial for expected output. In RViz, we should be able to see the following:</dt>
+<dd><ol class="first last arabic simple">
+<li>The robot moves its arm to the pose goal to its front.</li>
+<li>The robot moves its arm to the joint goal at its side.</li>
+<li>The robot moves its arm back to a new pose goal while maintaining the end-effector level.</li>
+<li>The robot moves its arm along the desired Cartesian path (a triangle down, right, up+left).</li>
+<li>A box object is added into the environment to the right of the arm.
+<img alt="B" src="./Move Group C++ Interface — moveit_tutorials Kinetic documentation_files/move_group_interface_tutorial_robot_with_box.png"></li>
+<li>The robot moves its arm to the pose goal, avoiding collision with the box.</li>
+<li>The object is attached to the wrist (its color will change to purple/orange/green).</li>
+<li>The object is detached from the wrist (its color will change back to green).</li>
+<li>The object is removed from the environment.</li>
+</ol>
+</dd>
+</dl>
+</div>
+<div class="section" id="the-entire-code">
+<h2>The Entire Code<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#the-entire-code" title="Permalink to this headline">¶</a></h2>
+<p>The entire code can be seen <a class="reference external" href="https://github.com/ros-planning/moveit_tutorials/tree/kinetic-devel/doc/move_group_interface/src/move_group_interface_tutorial.cpp">here in the MoveIt! GitHub project</a>. Next we step through the code piece by piece to explain its functionality.</p>
+<div class="section" id="setup">
+<h3>Setup<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#setup" title="Permalink to this headline">¶</a></h3>
+<p>MoveIt! operates on sets of joints called “planning groups” and stores them in an object called
+the <cite>JointModelGroup</cite>. Throughout MoveIt! the terms “planning group” and “joint model group”
+are used interchangably.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="k">static</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">PLANNING_GROUP</span> <span class="o">=</span> <span class="s">"panda_arm"</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The <a class="reference external" href="http://docs.ros.org/kinetic/api/moveit_ros_planning_interface/html/classmoveit_1_1planning__interface_1_1MoveGroup.html">MoveGroup</a> class can be easily
+setup using just the name of the planning group you would like to control and plan for.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">moveit</span><span class="o">::</span><span class="n">planning_interface</span><span class="o">::</span><span class="n">MoveGroupInterface</span> <span class="n">move_group</span><span class="p">(</span><span class="n">PLANNING_GROUP</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>We will use the <a class="reference external" href="http://docs.ros.org/kinetic/api/moveit_ros_planning_interface/html/classmoveit_1_1planning__interface_1_1PlanningSceneInterface.html">PlanningSceneInterface</a>
+class to add and remove collision objects in our “virtual world” scene</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">moveit</span><span class="o">::</span><span class="n">planning_interface</span><span class="o">::</span><span class="n">PlanningSceneInterface</span> <span class="n">planning_scene_interface</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Raw pointers are frequently used to refer to the planning group for improved performance.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="k">const</span> <span class="n">robot_state</span><span class="o">::</span><span class="n">JointModelGroup</span><span class="o">*</span> <span class="n">joint_model_group</span> <span class="o">=</span>
+    <span class="n">move_group</span><span class="p">.</span><span class="n">getCurrentState</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">getJointModelGroup</span><span class="p">(</span><span class="n">PLANNING_GROUP</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="visualization">
+<h3>Visualization<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#visualization" title="Permalink to this headline">¶</a></h3>
+<p>The package MoveItVisualTools provides many capabilties for visualizing objects, robots,
+and trajectories in RViz as well as debugging tools such as step-by-step introspection of a script</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="k">namespace</span> <span class="n">rvt</span> <span class="o">=</span> <span class="n">rviz_visual_tools</span><span class="p">;</span>
+<span class="n">moveit_visual_tools</span><span class="o">::</span><span class="n">MoveItVisualTools</span> <span class="n">visual_tools</span><span class="p">(</span><span class="s">"panda_link0"</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">deleteAllMarkers</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Remote control is an introspection tool that allows users to step through a high level script
+via buttons and keyboard shortcuts in RViz</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">visual_tools</span><span class="p">.</span><span class="n">loadRemoteControl</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>RViz provides many types of markers, in this demo we will use text, cylinders, and spheres</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">Eigen</span><span class="o">::</span><span class="n">Affine3d</span> <span class="n">text_pose</span> <span class="o">=</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Affine3d</span><span class="o">::</span><span class="n">Identity</span><span class="p">();</span>
+<span class="n">text_pose</span><span class="p">.</span><span class="n">translation</span><span class="p">().</span><span class="n">z</span><span class="p">()</span> <span class="o">=</span> <span class="mf">1.75</span><span class="p">;</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishText</span><span class="p">(</span><span class="n">text_pose</span><span class="p">,</span> <span class="s">"MoveGroupInterface Demo"</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">WHITE</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">XLARGE</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Batch publishing is used to reduce the number of messages being sent to RViz for large visualizations</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-basic-information">
+<h3>Getting Basic Information<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#getting-basic-information" title="Permalink to this headline">¶</a></h3>
+<p>We can print the name of the reference frame for this robot.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">ROS_INFO_NAMED</span><span class="p">(</span><span class="s">"tutorial"</span><span class="p">,</span> <span class="s">"Reference frame: %s"</span><span class="p">,</span> <span class="n">move_group</span><span class="p">.</span><span class="n">getPlanningFrame</span><span class="p">().</span><span class="n">c_str</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>We can also print the name of the end-effector link for this group.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">ROS_INFO_NAMED</span><span class="p">(</span><span class="s">"tutorial"</span><span class="p">,</span> <span class="s">"End effector link: %s"</span><span class="p">,</span> <span class="n">move_group</span><span class="p">.</span><span class="n">getEndEffectorLink</span><span class="p">().</span><span class="n">c_str</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-the-demo">
+<h3>Start the demo<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#start-the-demo" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">visual_tools</span><span class="p">.</span><span class="n">prompt</span><span class="p">(</span><span class="s">"Press 'next' in the RvizVisualToolsGui window to start the demo"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="planning-to-a-pose-goal">
+<h3>Planning to a Pose goal<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#planning-to-a-pose-goal" title="Permalink to this headline">¶</a></h3>
+<p>We can plan a motion for this group to a desired pose for the
+end-effector.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Pose</span> <span class="n">target_pose1</span><span class="p">;</span>
+<span class="n">target_pose1</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="n">target_pose1</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.28</span><span class="p">;</span>
+<span class="n">target_pose1</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">;</span>
+<span class="n">target_pose1</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="n">move_group</span><span class="p">.</span><span class="n">setPoseTarget</span><span class="p">(</span><span class="n">target_pose1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now, we call the planner to compute the plan and visualize it.
+Note that we are just planning, not asking move_group
+to actually move the robot.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">moveit</span><span class="o">::</span><span class="n">planning_interface</span><span class="o">::</span><span class="n">MoveGroupInterface</span><span class="o">::</span><span class="n">Plan</span> <span class="n">my_plan</span><span class="p">;</span>
+
+<span class="kt">bool</span> <span class="n">success</span> <span class="o">=</span> <span class="p">(</span><span class="n">move_group</span><span class="p">.</span><span class="n">plan</span><span class="p">(</span><span class="n">my_plan</span><span class="p">)</span> <span class="o">==</span> <span class="n">moveit</span><span class="o">::</span><span class="n">planning_interface</span><span class="o">::</span><span class="n">MoveItErrorCode</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">);</span>
+
+<span class="n">ROS_INFO_NAMED</span><span class="p">(</span><span class="s">"tutorial"</span><span class="p">,</span> <span class="s">"Visualizing plan 1 (pose goal) %s"</span><span class="p">,</span> <span class="n">success</span> <span class="o">?</span> <span class="s">""</span> <span class="o">:</span> <span class="s">"FAILED"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="visualizing-plans">
+<h3>Visualizing plans<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#visualizing-plans" title="Permalink to this headline">¶</a></h3>
+<p>We can also visualize the plan as a line with markers in RViz.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">ROS_INFO_NAMED</span><span class="p">(</span><span class="s">"tutorial"</span><span class="p">,</span> <span class="s">"Visualizing plan 1 as trajectory line"</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishAxisLabeled</span><span class="p">(</span><span class="n">target_pose1</span><span class="p">,</span> <span class="s">"pose1"</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishText</span><span class="p">(</span><span class="n">text_pose</span><span class="p">,</span> <span class="s">"Pose Goal"</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">WHITE</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">XLARGE</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishTrajectoryLine</span><span class="p">(</span><span class="n">my_plan</span><span class="p">.</span><span class="n">trajectory_</span><span class="p">,</span> <span class="n">joint_model_group</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">prompt</span><span class="p">(</span><span class="s">"Press 'next' in the RvizVisualToolsGui window to continue the demo"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="moving-to-a-pose-goal">
+<h3>Moving to a pose goal<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#moving-to-a-pose-goal" title="Permalink to this headline">¶</a></h3>
+<p>Moving to a pose goal is similar to the step above
+except we now use the move() function. Note that
+the pose goal we had set earlier is still active
+and so the robot will try to move to that goal. We will
+not use that function in this tutorial since it is
+a blocking function and requires a controller to be active
+and report success on execution of a trajectory.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="cm">/* Uncomment below line when working with a real robot */</span>
+<span class="cm">/* move_group.move() */</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="planning-to-a-joint-space-goal">
+<h3>Planning to a joint-space goal<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#planning-to-a-joint-space-goal" title="Permalink to this headline">¶</a></h3>
+<p>Let’s set a joint space goal and move towards it.  This will replace the
+pose target we set above.</p>
+<p>To start, we’ll create an pointer that references the current robot’s state.
+RobotState is the object that contains all the current position/velocity/acceleration data.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">moveit</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">RobotStatePtr</span> <span class="n">current_state</span> <span class="o">=</span> <span class="n">move_group</span><span class="p">.</span><span class="n">getCurrentState</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Next get the current set of joint values for the group.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">joint_group_positions</span><span class="p">;</span>
+<span class="n">current_state</span><span class="o">-&gt;</span><span class="n">copyJointGroupPositions</span><span class="p">(</span><span class="n">joint_model_group</span><span class="p">,</span> <span class="n">joint_group_positions</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now, let’s modify one of the joints, plan to the new joint space goal and visualize the plan.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">joint_group_positions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">;</span>  <span class="c1">// radians</span>
+<span class="n">move_group</span><span class="p">.</span><span class="n">setJointValueTarget</span><span class="p">(</span><span class="n">joint_group_positions</span><span class="p">);</span>
+
+<span class="n">success</span> <span class="o">=</span> <span class="p">(</span><span class="n">move_group</span><span class="p">.</span><span class="n">plan</span><span class="p">(</span><span class="n">my_plan</span><span class="p">)</span> <span class="o">==</span> <span class="n">moveit</span><span class="o">::</span><span class="n">planning_interface</span><span class="o">::</span><span class="n">MoveItErrorCode</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">);</span>
+<span class="n">ROS_INFO_NAMED</span><span class="p">(</span><span class="s">"tutorial"</span><span class="p">,</span> <span class="s">"Visualizing plan 2 (joint space goal) %s"</span><span class="p">,</span> <span class="n">success</span> <span class="o">?</span> <span class="s">""</span> <span class="o">:</span> <span class="s">"FAILED"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Visualize the plan in RViz</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">visual_tools</span><span class="p">.</span><span class="n">deleteAllMarkers</span><span class="p">();</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishText</span><span class="p">(</span><span class="n">text_pose</span><span class="p">,</span> <span class="s">"Joint Space Goal"</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">WHITE</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">XLARGE</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishTrajectoryLine</span><span class="p">(</span><span class="n">my_plan</span><span class="p">.</span><span class="n">trajectory_</span><span class="p">,</span> <span class="n">joint_model_group</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">prompt</span><span class="p">(</span><span class="s">"Press 'next' in the RvizVisualToolsGui window to continue the demo"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="planning-with-path-constraints">
+<h3>Planning with Path Constraints<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#planning-with-path-constraints" title="Permalink to this headline">¶</a></h3>
+<p>Path constraints can easily be specified for a link on the robot.
+Let’s specify a path constraint and a pose goal for our group.
+First define the path constraint.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">moveit_msgs</span><span class="o">::</span><span class="n">OrientationConstraint</span> <span class="n">ocm</span><span class="p">;</span>
+<span class="n">ocm</span><span class="p">.</span><span class="n">link_name</span> <span class="o">=</span> <span class="s">"panda_link7"</span><span class="p">;</span>
+<span class="n">ocm</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s">"panda_link0"</span><span class="p">;</span>
+<span class="n">ocm</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="n">ocm</span><span class="p">.</span><span class="n">absolute_x_axis_tolerance</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">ocm</span><span class="p">.</span><span class="n">absolute_y_axis_tolerance</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">ocm</span><span class="p">.</span><span class="n">absolute_z_axis_tolerance</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">ocm</span><span class="p">.</span><span class="n">weight</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Now, set it as the path constraint for the group.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">moveit_msgs</span><span class="o">::</span><span class="n">Constraints</span> <span class="n">test_constraints</span><span class="p">;</span>
+<span class="n">test_constraints</span><span class="p">.</span><span class="n">orientation_constraints</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">ocm</span><span class="p">);</span>
+<span class="n">move_group</span><span class="p">.</span><span class="n">setPathConstraints</span><span class="p">(</span><span class="n">test_constraints</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>We will reuse the old goal that we had and plan to it.
+Note that this will only work if the current state already
+satisfies the path constraints. So, we need to set the start
+state to a new pose.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">robot_state</span><span class="o">::</span><span class="n">RobotState</span> <span class="n">start_state</span><span class="p">(</span><span class="o">*</span><span class="n">move_group</span><span class="p">.</span><span class="n">getCurrentState</span><span class="p">());</span>
+<span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Pose</span> <span class="n">start_pose2</span><span class="p">;</span>
+<span class="n">start_pose2</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="n">start_pose2</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.55</span><span class="p">;</span>
+<span class="n">start_pose2</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">;</span>
+<span class="n">start_pose2</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">;</span>
+<span class="n">start_state</span><span class="p">.</span><span class="n">setFromIK</span><span class="p">(</span><span class="n">joint_model_group</span><span class="p">,</span> <span class="n">start_pose2</span><span class="p">);</span>
+<span class="n">move_group</span><span class="p">.</span><span class="n">setStartState</span><span class="p">(</span><span class="n">start_state</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now we will plan to the earlier pose target from the new
+start state that we have just created.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">move_group</span><span class="p">.</span><span class="n">setPoseTarget</span><span class="p">(</span><span class="n">target_pose1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Planning with constraints can be slow because every sample must call an inverse kinematics solver.
+Lets increase the planning time from the default 5 seconds to be sure the planner has enough time to succeed.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">move_group</span><span class="p">.</span><span class="n">setPlanningTime</span><span class="p">(</span><span class="mf">10.0</span><span class="p">);</span>
+
+<span class="n">success</span> <span class="o">=</span> <span class="p">(</span><span class="n">move_group</span><span class="p">.</span><span class="n">plan</span><span class="p">(</span><span class="n">my_plan</span><span class="p">)</span> <span class="o">==</span> <span class="n">moveit</span><span class="o">::</span><span class="n">planning_interface</span><span class="o">::</span><span class="n">MoveItErrorCode</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">);</span>
+<span class="n">ROS_INFO_NAMED</span><span class="p">(</span><span class="s">"tutorial"</span><span class="p">,</span> <span class="s">"Visualizing plan 3 (constraints) %s"</span><span class="p">,</span> <span class="n">success</span> <span class="o">?</span> <span class="s">""</span> <span class="o">:</span> <span class="s">"FAILED"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Visualize the plan in RViz</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">visual_tools</span><span class="p">.</span><span class="n">deleteAllMarkers</span><span class="p">();</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishAxisLabeled</span><span class="p">(</span><span class="n">start_pose2</span><span class="p">,</span> <span class="s">"start"</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishAxisLabeled</span><span class="p">(</span><span class="n">target_pose1</span><span class="p">,</span> <span class="s">"goal"</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishText</span><span class="p">(</span><span class="n">text_pose</span><span class="p">,</span> <span class="s">"Constrained Goal"</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">WHITE</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">XLARGE</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishTrajectoryLine</span><span class="p">(</span><span class="n">my_plan</span><span class="p">.</span><span class="n">trajectory_</span><span class="p">,</span> <span class="n">joint_model_group</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">prompt</span><span class="p">(</span><span class="s">"next step"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>When done with the path constraint be sure to clear it.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">move_group</span><span class="p">.</span><span class="n">clearPathConstraints</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cartesian-paths">
+<h3>Cartesian Paths<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#cartesian-paths" title="Permalink to this headline">¶</a></h3>
+<p>You can plan a Cartesian path directly by specifying a list of waypoints
+for the end-effector to go through. Note that we are starting
+from the new start state above.  The initial pose (start state) does not
+need to be added to the waypoint list but adding it can help with visualizations</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Pose</span><span class="o">&gt;</span> <span class="n">waypoints</span><span class="p">;</span>
+<span class="n">waypoints</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">start_pose2</span><span class="p">);</span>
+
+<span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Pose</span> <span class="n">target_pose3</span> <span class="o">=</span> <span class="n">start_pose2</span><span class="p">;</span>
+
+<span class="n">target_pose3</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">-=</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="n">waypoints</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">target_pose3</span><span class="p">);</span>  <span class="c1">// down</span>
+
+<span class="n">target_pose3</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">-=</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="n">waypoints</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">target_pose3</span><span class="p">);</span>  <span class="c1">// right</span>
+
+<span class="n">target_pose3</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">+=</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="n">target_pose3</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">+=</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="n">target_pose3</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">-=</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="n">waypoints</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">target_pose3</span><span class="p">);</span>  <span class="c1">// up and left</span>
+</pre></div>
+</div>
+<p>Cartesian motions are frequently needed to be slower for actions such as approach and retreat
+grasp motions. Here we demonstrate how to reduce the speed of the robot arm via a scaling factor
+of the maxiumum speed of each joint. Note this is not the speed of the end effector point.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">move_group</span><span class="p">.</span><span class="n">setMaxVelocityScalingFactor</span><span class="p">(</span><span class="mf">0.1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>We want the Cartesian path to be interpolated at a resolution of 1 cm
+which is why we will specify 0.01 as the max step in Cartesian
+translation.  We will specify the jump threshold as 0.0, effectively disabling it.
+Warning - disabling the jump threshold while operating real hardware can cause
+large unpredictable motions of redundant joints and could be a safety issue</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">moveit_msgs</span><span class="o">::</span><span class="n">RobotTrajectory</span> <span class="n">trajectory</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">double</span> <span class="n">jump_threshold</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">double</span> <span class="n">eef_step</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">fraction</span> <span class="o">=</span> <span class="n">move_group</span><span class="p">.</span><span class="n">computeCartesianPath</span><span class="p">(</span><span class="n">waypoints</span><span class="p">,</span> <span class="n">eef_step</span><span class="p">,</span> <span class="n">jump_threshold</span><span class="p">,</span> <span class="n">trajectory</span><span class="p">);</span>
+<span class="n">ROS_INFO_NAMED</span><span class="p">(</span><span class="s">"tutorial"</span><span class="p">,</span> <span class="s">"Visualizing plan 4 (Cartesian path) (%.2f%% acheived)"</span><span class="p">,</span> <span class="n">fraction</span> <span class="o">*</span> <span class="mf">100.0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Visualize the plan in RViz</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">visual_tools</span><span class="p">.</span><span class="n">deleteAllMarkers</span><span class="p">();</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishText</span><span class="p">(</span><span class="n">text_pose</span><span class="p">,</span> <span class="s">"Joint Space Goal"</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">WHITE</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">XLARGE</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishPath</span><span class="p">(</span><span class="n">waypoints</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">LIME_GREEN</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">SMALL</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">waypoints</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">visual_tools</span><span class="p">.</span><span class="n">publishAxisLabeled</span><span class="p">(</span><span class="n">waypoints</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">"pt"</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">rvt</span><span class="o">::</span><span class="n">SMALL</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">prompt</span><span class="p">(</span><span class="s">"Press 'next' in the RvizVisualToolsGui window to continue the demo"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-removing-objects-and-attaching-detaching-objects">
+<h3>Adding/Removing Objects and Attaching/Detaching Objects<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#adding-removing-objects-and-attaching-detaching-objects" title="Permalink to this headline">¶</a></h3>
+<p>Define a collision object ROS message.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">moveit_msgs</span><span class="o">::</span><span class="n">CollisionObject</span> <span class="n">collision_object</span><span class="p">;</span>
+<span class="n">collision_object</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="n">move_group</span><span class="p">.</span><span class="n">getPlanningFrame</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>The id of the object is used to identify it.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">collision_object</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="s">"box1"</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Define a box to add to the world.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">shape_msgs</span><span class="o">::</span><span class="n">SolidPrimitive</span> <span class="n">primitive</span><span class="p">;</span>
+<span class="n">primitive</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">primitive</span><span class="p">.</span><span class="n">BOX</span><span class="p">;</span>
+<span class="n">primitive</span><span class="p">.</span><span class="n">dimensions</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">primitive</span><span class="p">.</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">;</span>
+<span class="n">primitive</span><span class="p">.</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">primitive</span><span class="p">.</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Define a pose for the box (specified relative to frame_id)</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Pose</span> <span class="n">box_pose</span><span class="p">;</span>
+<span class="n">box_pose</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="n">box_pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">;</span>
+<span class="n">box_pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">;</span>
+<span class="n">box_pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+
+<span class="n">collision_object</span><span class="p">.</span><span class="n">primitives</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">primitive</span><span class="p">);</span>
+<span class="n">collision_object</span><span class="p">.</span><span class="n">primitive_poses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">box_pose</span><span class="p">);</span>
+<span class="n">collision_object</span><span class="p">.</span><span class="n">operation</span> <span class="o">=</span> <span class="n">collision_object</span><span class="p">.</span><span class="n">ADD</span><span class="p">;</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">moveit_msgs</span><span class="o">::</span><span class="n">CollisionObject</span><span class="o">&gt;</span> <span class="n">collision_objects</span><span class="p">;</span>
+<span class="n">collision_objects</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">collision_object</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now, let’s add the collision object into the world</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">ROS_INFO_NAMED</span><span class="p">(</span><span class="s">"tutorial"</span><span class="p">,</span> <span class="s">"Add an object into the world"</span><span class="p">);</span>
+<span class="n">planning_scene_interface</span><span class="p">.</span><span class="n">addCollisionObjects</span><span class="p">(</span><span class="n">collision_objects</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Show text in RViz of status</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">visual_tools</span><span class="p">.</span><span class="n">publishText</span><span class="p">(</span><span class="n">text_pose</span><span class="p">,</span> <span class="s">"Add object"</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">WHITE</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">XLARGE</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Wait for MoveGroup to recieve and process the collision object message</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">visual_tools</span><span class="p">.</span><span class="n">prompt</span><span class="p">(</span><span class="s">"Press 'next' in the RvizVisualToolsGui window to once the collision object appears in RViz"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now when we plan a trajectory it will avoid the obstacle</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">move_group</span><span class="p">.</span><span class="n">setStartState</span><span class="p">(</span><span class="o">*</span><span class="n">move_group</span><span class="p">.</span><span class="n">getCurrentState</span><span class="p">());</span>
+<span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Pose</span> <span class="n">another_pose</span><span class="p">;</span>
+<span class="n">another_pose</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="n">another_pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">;</span>
+<span class="n">another_pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">;</span>
+<span class="n">another_pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">;</span>
+<span class="n">move_group</span><span class="p">.</span><span class="n">setPoseTarget</span><span class="p">(</span><span class="n">another_pose</span><span class="p">);</span>
+
+<span class="n">success</span> <span class="o">=</span> <span class="p">(</span><span class="n">move_group</span><span class="p">.</span><span class="n">plan</span><span class="p">(</span><span class="n">my_plan</span><span class="p">)</span> <span class="o">==</span> <span class="n">moveit</span><span class="o">::</span><span class="n">planning_interface</span><span class="o">::</span><span class="n">MoveItErrorCode</span><span class="o">::</span><span class="n">SUCCESS</span><span class="p">);</span>
+<span class="n">ROS_INFO_NAMED</span><span class="p">(</span><span class="s">"tutorial"</span><span class="p">,</span> <span class="s">"Visualizing plan 5 (pose goal move around cuboid) %s"</span><span class="p">,</span> <span class="n">success</span> <span class="o">?</span> <span class="s">""</span> <span class="o">:</span> <span class="s">"FAILED"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Visualize the plan in RViz</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">visual_tools</span><span class="p">.</span><span class="n">deleteAllMarkers</span><span class="p">();</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishText</span><span class="p">(</span><span class="n">text_pose</span><span class="p">,</span> <span class="s">"Obstacle Goal"</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">WHITE</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">XLARGE</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">publishTrajectoryLine</span><span class="p">(</span><span class="n">my_plan</span><span class="p">.</span><span class="n">trajectory_</span><span class="p">,</span> <span class="n">joint_model_group</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">prompt</span><span class="p">(</span><span class="s">"next step"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now, let’s attach the collision object to the robot.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">ROS_INFO_NAMED</span><span class="p">(</span><span class="s">"tutorial"</span><span class="p">,</span> <span class="s">"Attach the object to the robot"</span><span class="p">);</span>
+<span class="n">move_group</span><span class="p">.</span><span class="n">attachObject</span><span class="p">(</span><span class="n">collision_object</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Show text in RViz of status</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">visual_tools</span><span class="p">.</span><span class="n">publishText</span><span class="p">(</span><span class="n">text_pose</span><span class="p">,</span> <span class="s">"Object attached to robot"</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">WHITE</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">XLARGE</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+
+<span class="cm">/* Wait for MoveGroup to recieve and process the attached collision object message */</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">prompt</span><span class="p">(</span><span class="s">"Press 'next' in the RvizVisualToolsGui window to once the collision object attaches to the "</span>
+                    <span class="s">"robot"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now, let’s detach the collision object from the robot.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">ROS_INFO_NAMED</span><span class="p">(</span><span class="s">"tutorial"</span><span class="p">,</span> <span class="s">"Detach the object from the robot"</span><span class="p">);</span>
+<span class="n">move_group</span><span class="p">.</span><span class="n">detachObject</span><span class="p">(</span><span class="n">collision_object</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Show text in RViz of status</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">visual_tools</span><span class="p">.</span><span class="n">publishText</span><span class="p">(</span><span class="n">text_pose</span><span class="p">,</span> <span class="s">"Object dettached from robot"</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">WHITE</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">XLARGE</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+
+<span class="cm">/* Wait for MoveGroup to recieve and process the attached collision object message */</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">prompt</span><span class="p">(</span><span class="s">"Press 'next' in the RvizVisualToolsGui window to once the collision object detaches to the "</span>
+                    <span class="s">"robot"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now, let’s remove the collision object from the world.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">ROS_INFO_NAMED</span><span class="p">(</span><span class="s">"tutorial"</span><span class="p">,</span> <span class="s">"Remove the object from the world"</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">object_ids</span><span class="p">;</span>
+<span class="n">object_ids</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">collision_object</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
+<span class="n">planning_scene_interface</span><span class="p">.</span><span class="n">removeCollisionObjects</span><span class="p">(</span><span class="n">object_ids</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Show text in RViz of status</p>
+<div class="highlight-c++"><div class="highlight"><pre><span class="n">visual_tools</span><span class="p">.</span><span class="n">publishText</span><span class="p">(</span><span class="n">text_pose</span><span class="p">,</span> <span class="s">"Object removed"</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">WHITE</span><span class="p">,</span> <span class="n">rvt</span><span class="o">::</span><span class="n">XLARGE</span><span class="p">);</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">trigger</span><span class="p">();</span>
+
+<span class="cm">/* Wait for MoveGroup to recieve and process the attached collision object message */</span>
+<span class="n">visual_tools</span><span class="p">.</span><span class="n">prompt</span><span class="p">(</span><span class="s">"Press 'next' in the RvizVisualToolsGui window to once the collision object disapears"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-launch-file">
+<h2>The Launch File<a class="headerlink" href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_interface/move_group_interface_tutorial.html#the-launch-file" title="Permalink to this headline">¶</a></h2>
+<p>The entire launch file is <a class="reference external" href="https://github.com/ros-planning/moveit_tutorials/tree/kinetic-devel/doc/move_group_interface/launch/move_group_interface_tutorial.launch">here</a> on GitHub. All the code in this tutorial can be run from the <strong>moveit_tutorials</strong> package that you have as part of your MoveIt! setup.</p>
+</div>
+</div>
+
+
+            
+            <div class="admonition note">
+              <p class="first admonition-title">Open Source Feedback</p>
+              <p class="last">See something that needs improvement? Please open a pull request on this <a href="https://github.com/ros-planning/moveit_tutorials/blob/kinetic-devel/doc/move_group_interface/move_group_interface_tutorial.rst" class="fa fa-github"> GitHub page</a></p>
+            </div>
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html" class="btn btn-neutral float-right" title="Move Group Python Interface" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/quickstart_in_rviz/quickstart_in_rviz_tutorial.html" class="btn btn-neutral" title="MoveIt! Quickstart in RViz" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org/">Read the Docs</a>.
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'Kinetic',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="./Move Group C++ Interface — moveit_tutorials Kinetic documentation_files/jquery.js"></script>
+      <script type="text/javascript" src="./Move Group C++ Interface — moveit_tutorials Kinetic documentation_files/underscore.js"></script>
+      <script type="text/javascript" src="./Move Group C++ Interface — moveit_tutorials Kinetic documentation_files/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="./Move Group C++ Interface — moveit_tutorials Kinetic documentation_files/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+
+</body></html>

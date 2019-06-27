@@ -1,0 +1,22 @@
+#mensajesEnviados{
+    background-color: #a0a0a0;
+    min-height: 70px;
+    overflow: auto;
+}
+#mensaje{
+    width: 80%;
+}
+#respuesta{
+    background-color: #f0f0f0;
+    min-height: 70px;
+}
+iframe {
+    width: 1000px;
+    border:0;
+    height: 500px;
+   /*  min-height: 180%;
+    max-height: 200%;
+    max-width: 20%;
+    min-width: 50%; */
+    
+}
