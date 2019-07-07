@@ -25,7 +25,11 @@ Item {
         visible: vis
         width: Screen.width-45
         height: Screen.height
-        z: -1
+        sourceSize.height: Screen.width-45
+        clip: false
+        sourceSize.width: Screen.width-45
+        enabled: true
+        z: 1
         opacity: 1.0
         source: "qrc:/img/background02.png"
         smooth: true

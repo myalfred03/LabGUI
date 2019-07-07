@@ -1,4 +1,4 @@
-import QtQuick 2.7
+import QtQuick 2.0
 import QtQuick.Window 2.0 //Screen.widht
 import QtGraphicalEffects.private 1.0
 import QtQuick.Controls.Universal 2.1
@@ -25,10 +25,14 @@ Item {
         visible: vis
         width: Screen.width-45
         height: Screen.height
-        z: -1
-        opacity: 1.0
+        sourceSize.height: Screen.width-45
+        clip: false
+        sourceSize.width: Screen.width-45
+        enabled: true
+        z: 1
+        opacity: 1
         source: "qrc:/img/background02.png"
-        smooth: true
+        smooth: false
         //}//image
 
 
