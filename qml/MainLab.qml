@@ -107,7 +107,7 @@ Item {
                                 }
                           }
                 TabButton {
-                    text: qsTr("Modelación de Robots")
+                    text: qsTr("Morfologia y Modelación de Robots")
                     onClicked: {
                         mRbiblio.vis=false
                         mRmodel.vis=true
@@ -119,19 +119,19 @@ Item {
 
                                }
                           }
-                TabButton {
-                    text: qsTr("Morfologia de Robots I")
-                    onClicked: {
-                        mRbiblio.vis=false
-                        mRmodel.vis=false
-                        mRkine.vis=false
-                        mRsimu.vis=false
-                        mRmorfo.vis=true
-                        panemenu.visible = true
-                        showSubMenu("qrc:/qml/Main/Morfo/ScreenMorfoTheoryR.qml")
+//                TabButton {
+//                    text: qsTr("Morfologia de Robots I")
+//                    onClicked: {
+//                        mRbiblio.vis=false
+//                        mRmodel.vis=false
+//                        mRkine.vis=false
+//                        mRsimu.vis=false
+//                        mRmorfo.vis=true
+//                        panemenu.visible = true
+//                        showSubMenu("qrc:/qml/Main/Morfo/ScreenMorfoTheoryR.qml")
 
-                               }
-                          }
+//                               }
+//                          }
                 TabButton {
                     text: qsTr("Cinemática de Robots")
                     onClicked: {
@@ -162,6 +162,9 @@ Item {
                                }
                            }
             } //tabbar
+
+
+
 
         Pane{
             id:panemenu

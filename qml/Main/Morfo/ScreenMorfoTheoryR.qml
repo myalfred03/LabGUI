@@ -16,6 +16,7 @@ Pane {
     TabBar {
         id:tabBar
         anchors.top: parent.top
+        anchors.bottom: tabBar2.top
         anchors.right: parent.right
         anchors.rightMargin: 3
         anchors.left: parent.left
@@ -51,9 +52,37 @@ Pane {
                        }
                   }
 
-          }
-    Pane{
+          } //tabBAr
+
+    TabBar {
+        id:tabBar2
         anchors.top: tabBar.bottom
+        anchors.right: parent.right
+        anchors.rightMargin: 3
+        anchors.left: parent.left
+        anchors.leftMargin: 3
+
+        Material.accent: Material.Green
+        Material.theme: Material.Light
+
+        TabButton {
+            text: qsTr("Eslabones")
+            onClicked: {
+                showSubMenu("qrc:/qml/Main/Model/Content/ThEsl.qml")
+                       }
+                  }
+
+        TabButton {
+            text: qsTr("Uniones")
+            onClicked: {
+                showSubMenu("qrc:/qml/Main/Model/Content/ThUn.qml")
+                       }
+                  }
+
+    } //tabbar2
+
+    Pane{
+        anchors.top: tabBar2.bottom
         anchors.right: parent.right
         anchors.rightMargin: 3
         anchors.left: parent.left

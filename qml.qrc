@@ -199,5 +199,12 @@
         <file>img/dialogsWel/mat.png</file>
         <file>img/dialogsWel/kin.png</file>
         <file>img/dialogsWel/prog.png</file>
+        <file>img/firstscreen/ROS.png</file>
+        <file>img/firstscreen/Rviz_2014.png</file>
+        <file>img/firstscreen/gazebo_png</file>
+        <file>img/firstscreen/Qt_logo_2016.svg</file>
+        <file>img/firstscreen/200px-ISO_C++_Logo.svg.png</file>
+        <file>img/firstscreen/gazebo8.png</file>
+        <file>img/firstscreen/ri.png</file>
     </qresource>
 </RCC>
