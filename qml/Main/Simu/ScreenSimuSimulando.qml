@@ -14,7 +14,7 @@ Pane {
                  sourceSize.width: 600
                  sourceSize.height: 500
                  fillMode: Image.PreserveAspectCrop
-                 source: "qrc:/img/loading/ROSGUI_183.png"
+                 source: "qrc:/img/loading/Workspace 1_280.png"
                    }
 
              AnimatedImage {
