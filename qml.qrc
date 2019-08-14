@@ -207,5 +207,6 @@
         <file>img/firstscreen/gazebo8.png</file>
         <file>img/firstscreen/ri.png</file>
         <file>img/loading/Workspace 1_280.png</file>
+        <file>img/loading/simu.png</file>
     </qresource>
 </RCC>
