@@ -43,67 +43,60 @@ Flickable{
                 }
 
 
-            Text{
+            Label {
                 width: parent.width
-                text: "Sonar GNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "So GnarNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "Sonar GNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "Sonar GNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "So GnarNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "Sonar GNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "and two different GUI options, Octopi or Pamac."
-                wrapMode: Text.Wrap
-                font.pointSize: 20
-                color: "black"
+             //   text: "<p> <strong>Fundamentos de Rob&oacute;tica:</strong> Es un libro que va dirigido tanto para los alumnos de ingenier&iacute;a y ciencias como para todo profesional que necesite conocer qu&eacute; es un robot, c&oacute;mo funciona y c&oacute;mo debe utilizarlo, retomando dentro de este libro parte de las cuatro secciones que compone el laboratorio virtaual de Rob&oacute;tica industrial, Morfolog&iacute;a del robot, Herramientas matem&aacute;ticas del Robot, Cinem&aacute;tica del robot, Programaci&oacute;n del robot.</p>"
+                wrapMode: Label.Wrap
+                textFormat: Text.RichText
                 horizontalAlignment: Text.AlignJustify
-                }
 
-            Text{
-                width: parent.width
-                text: "Sonar GNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "So GnarNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "Sonar GNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "Sonar GNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "So GnarNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "Sonar GNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "and two different GUI options, Octopi or Pamac."
-                wrapMode: Text.Wrap
-                font.pointSize: 20
-                color: "black"
-                horizontalAlignment: Text.AlignJustify
-                }
+                text:" <p><strong>Definición y elementos básicos</strong></p>
+                    <p>Para la definición de concepto de robot utilizaremos la propuesta por la Federación
+                        Internacional de Robótica (IFR) que por robot industrial de manipulación entiende a
+                        «una máquina de manipulación automática, reprogramable y multifuncional con tres
+                        o más ejes que pueden posicionar y orientar materias, piezas, herramientas o dispositivos
+                        especiales para la ejecución de trabajos diversos en las diferentes etapas de la
+                        producción industrial, ya sea en una posición fija o en movimiento </p>
 
-            Text{
-                width: parent.width
-                text: "Sonar GNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "So GnarNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "Sonar GNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "Sonar GNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "So GnarNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "Sonar GNU/Linux has three different options for managing "+
-                   "packages. The original command line option, Pacman "+
-                   "and two different GUI options, Octopi or Pamac."
-                wrapMode: Text.Wrap
-                font.pointSize: 20
-                color: "black"
-                horizontalAlignment: Text.AlignJustify
+                       <p>  De manera general, una instalación robotizada está compuesta por los siguientes
+                        elementos principales: </p>
+
+                         <p>
+                            <ul>
+                                <li>Manipulador.</li>
+                                <li>Accionamientos</li>
+                                <li>Elementos terminales</li>
+                                <li>Periferia del robot</li>
+                                <li>Sistemas de seguridad</li>
+                            </ul>
+                         </p>
+
+                        <p> El manipulador o brazo es un sistema mecánico usado para mover un elemento terminal
+                         o carga útil desde un lugar a otro. El manipulador es manejado por un conjunto
+                        de accionamientos basados en un sistema de potencia controlado por un sistema de
+                        control. La muñeca, montada en el extremo del brazo, permite cambios de orientación
+                         de la herramienta o elemento terminal final. La instalación se completa con los
+                        elementos periféricos asociados a la aplicación específica y los sistemas necesarios
+                        para garantizar la seguridad de las personas.</p>
+
+                        <p><strong>Manipulador</strong></p>
+
+                         <p>Exteriormente un robot industrial consta de una serie de partes rígidas o manipulador,
+                        que están unidas entre sí por medio de articulaciones formando una cadena cinemática.
+                        El manipulador es un ensamblaje de eslabones y articulaciones que permiten rotación
+                        o traslación entre dos de los eslabones. Estos eslabones son sólidos y son sostenidos
+                        por una base (horizontal, vertical o suspendida), con una articulación entre la base y
+                        el primer eslabón.</p>
+
+
+                "
+
+
+
+
+                font.pointSize: 13
+
+
                 }
 
 

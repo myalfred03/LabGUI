@@ -208,5 +208,7 @@
         <file>img/firstscreen/ri.png</file>
         <file>img/loading/Workspace 1_280.png</file>
         <file>img/loading/simu.png</file>
+        <file>img/content/ri.png</file>
+        <file>img/content/Industrieroboter.png</file>
     </qresource>
 </RCC>
